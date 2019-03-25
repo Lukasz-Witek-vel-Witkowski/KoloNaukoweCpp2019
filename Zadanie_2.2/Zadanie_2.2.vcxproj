@@ -20,8 +20,8 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{D38CBB1A-5959-435C-90C7-D01C43F35DD3}</ProjectGuid>
-    <RootNamespace>Zadanie2</RootNamespace>
+    <ProjectGuid>{F9645052-EAC2-46EC-BAE9-5688E0CCDE07}</ProjectGuid>
+    <RootNamespace>Zadanie22</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
     <ProjectName>Zadanie_1.2</ProjectName>
   </PropertyGroup>
@@ -116,7 +116,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Zadanie_1.2.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
