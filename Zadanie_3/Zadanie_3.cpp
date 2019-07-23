@@ -36,21 +36,27 @@ char** constructor(char** board, int size); //Funkcja budujaca plansze yes
 char** destroyer(char** board, int size); //Funkcja niszczaca plansze yes
 void switchProgram(int& value, Program& program); //funkcja przelaczajaca pomiedzy case w grze yes 
 void settingDefoult(int& size, int& lenght); //Ladowanie podstawowych danych yes
-void horizontalChecking(char** board,int size, int length, int& result); //Sprawdzanie poziome planszy no
-void verticalChecking(char** board,int size, int length, int& result); //Sprawdzanie pionowe planszy no
-void obliquecheck(char** board,int size, int length, int& result); //Spwardzanie skosne planszy no
+void horizontalChecking(char** board,int size, int length, bool& result, bool wheel); //Sprawdzanie poziome planszy no
+void verticalChecking(char** board,int size, int length, bool& result, bool wheel); //Sprawdzanie pionowe planszy no
+void obliquecheck(char** board,int size, int length, bool& result,bool wheel); //Spwardzanie skosne planszy no
 void viewBoard(char** board, int size); //wyswietlenie planszy no
 bool trafficChoice(char**board, int size, int& choiceX, int& choiceY); //Pobranie danych odnosnie wybranej pozycji yes
 int main() {
 	int choice; //zmienna wyboru dla menu
 	int value; //zmienna pomocnicza w sterowaniu 
 	int length; //zmienna okreslajaca wartosc reguly
-	int size;	//zmienna okreslajaca wielkosc wielkosc planszy
+	int size = 6;	//zmienna okreslajaca wielkosc wielkosc planszy
 	bool wheel; //zmienna znaku
 	bool reply = false; //zmienna sterujaca odpowiedzialna za niepoprawne wprowadzenie wartosci
 	bool play = true; //zmienna okresljaca czy gra sie toczy, podstawowo utawiono na "true"
 	char** board = nullptr; //zmienna dotyczaca planszy
 	Program program = Program::MainMenu; //zmienna tytpu enumerowanego
+	board = constructor(board, size);
+	viewBoard(board, size);
+	board = destroyer(board, size);
+	system("pause");
+	return 0;
+
 	do {
 		switch (program) {
 		case MainMenu:	prMainMenu(program, choice, value, reply); break;
@@ -79,16 +85,15 @@ int main() {
 	system("pause");
 	return 0;
 }
-void horizontalChecking(char** board, int size, int length, int& result) {
+void horizontalChecking(char** board, int size, int length, bool& result, bool wheel) {
 
-}
-void verticalChecking(char** board, int size, int length, int& result) {
+}//Sprawdzanie poziome planszy no
+void verticalChecking(char** board, int size, int length, bool& result, bool wheel) {
 
-}
-void obliquecheck(char** board, int size, int length, int& result) {
+}//Sprawdzanie pionowe planszy no
+void obliquecheck(char** board, int size, int length, bool& result, bool wheel) {
 
-
-}
+}//Spwardzanie skosne planszy no
 bool mainSelection(int choice,int& value, Program& program) {
 	switch (choice) {
 	case 1:
@@ -150,10 +155,10 @@ char** constructor(char** board, int size) {
 	for (i = 0; i < size; i++) {
 		board[i] = new char[size];
 		for (j = 0; j < size; j++)
-			board[i][j] = 'X';
+			board[i][j] = ' ';
 	}
-	board[0][1] = 'O';
-	board[1][1] = ' ';
+	board[0][0] = 'O';
+	board[1][1] = 'X';
 	return board;
 }
 char** destroyer(char** board, int size) {
